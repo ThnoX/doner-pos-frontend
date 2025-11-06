@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://api.cakmak.widenox.com/$1" }
+    { "source": "/api/(.*)", "destination": "https://api.cakmak.widenox.com/api/$1" }
   ]
 }
