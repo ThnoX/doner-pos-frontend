@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* ==== Tema / Global ==== */
+:root { color-scheme: dark; }
+html, body, #root { height: 100%; }
+body { @apply bg-neutral-950 text-zinc-200 antialiased; }
+
+/* Seçim ve scrollbar */
+::selection { @apply bg-zinc-700/60 text-white; }
+* { scrollbar-width: thin; scrollbar-color: rgb(39 39 42) transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { @apply bg-zinc-800 rounded-lg border border-zinc-700; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+
+/* Konteyner */
+.container-narrow { @apply mx-auto max-w-7xl px-4; }
+
+/* ==== Utilities ==== */
+@layer utilities {
+  .title { @apply text-sm font-semibold tracking-wide text-zinc-400; }
+  .muted { @apply text-sm text-zinc-400; }
+  .h1 { @apply text-2xl font-semibold; }
+  .h2 { @apply text-xl font-semibold; }
+  .kbd { @apply px-1.5 py-0.5 rounded-md border border-zinc-700/80 bg-zinc-900 text-[11px] font-medium; }
+}
+
+/* ==== Kart / Panel ==== */
+.panel { @apply rounded-2xl border border-neutral-800 bg-neutral-950/60 backdrop-blur; }
+.card  { @apply rounded-2xl border border-neutral-800 bg-neutral-950/60 backdrop-blur; }
+
+/* ==== Butonlar ==== */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl border border-neutral-800
+         bg-neutral-950 px-3 py-2 text-sm font-medium
+         hover:bg-neutral-900 active:bg-neutral-900/80
+         transition focus:outline-none focus:ring-2 focus:ring-indigo-500/40;
+}
+.btn-sm   { @apply px-2 py-1 rounded-lg text-xs; }
+.btn-lg   { @apply px-4 py-2.5 rounded-2xl text-base; }
+.btn-ghost{ @apply bg-transparent hover:bg-neutral-900/60; }
+.btn-primary { @apply border-indigo-600 bg-indigo-600/20 text-indigo-300 hover:bg-indigo-600/30 hover:border-indigo-500; }
+.btn-danger  { @apply border-rose-600   bg-rose-600/20   text-rose-300   hover:bg-rose-600/30   hover:border-rose-500; }
+.btn:disabled { @apply opacity-50 pointer-events-none; }
+
+/* ==== Qty küçük butonlar ==== */
+.qty { @apply inline-flex items-center gap-2; }
+.qty .icon {
+  @apply inline-flex items-center justify-center gap-2
+         rounded-lg border border-neutral-800
+         bg-transparent text-xs font-medium
+         hover:bg-neutral-900/60 active:bg-neutral-900/80
+         transition focus:outline-none focus:ring-2 focus:ring-indigo-500/40
+         w-8 h-8 p-0;
+}
+
+/* ==== Input / Textarea ==== */
+.input {
+  @apply w-full rounded-xl border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm
+         placeholder:text-zinc-500 outline-none
+         focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/30;
+}
+/* BURASI DÜZELTİLDİ: @apply input kaldırıldı */
+.textarea {
+  @apply w-full rounded-xl border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm
+         placeholder:text-zinc-500 outline-none
+         focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/30
+         min-h-24 resize-y;
+}
+
+/* ==== Badge ==== */
+.badge { @apply inline-flex items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-900 px-2 py-0.5 text-xs; }
+.badge-success { @apply border-emerald-700 bg-emerald-900/30 text-emerald-300; }
+.badge-warn    { @apply border-amber-700  bg-amber-900/30  text-amber-300; }
+.badge-danger  { @apply border-rose-700   bg-rose-900/30   text-rose-300; }
+
+/* ==== Segmented Tabs ==== */
+.segmented { @apply inline-flex items-center gap-1 rounded-2xl border border-zinc-800 bg-zinc-950 p-1; }
+.segmented .seg { @apply rounded-xl px-3 py-1.5 text-sm text-zinc-300 hover:bg-zinc-900 transition; }
+.segmented .seg.active { @apply bg-zinc-800 text-white; }
+
+/* ==== Modal ==== */
+.modal-backdrop { @apply fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4; }
+.modal { @apply w-[380px] max-w-full rounded-2xl border border-neutral-800 bg-neutral-950/60 backdrop-blur p-4 shadow-2xl; }
+.modal-title { @apply text-xl font-semibold mb-3; }
+.modal-actions { @apply mt-3 grid grid-cols-2 gap-2; }
